@@ -324,7 +324,7 @@ export default EditItem;
 
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
-    `mongodb+srv://${process.env.USER__NAME}:${process.env.USER__PASSWORD}@cluster0.ishut.mongodb.net/${process.env.DATABASE__NAME}?retryWrites=true&w=majority`,
+    process.env.MONGODB_URL,
     { useNewUrlParser: true }
   );
 
@@ -347,7 +347,7 @@ export async function getStaticProps(context) {
   const { invoiceId } = context.params;
 
   const client = await MongoClient.connect(
-    `mongodb+srv://${process.env.USER__NAME}:${process.env.USER__PASSWORD}@cluster0.ishut.mongodb.net/${process.env.DATABASE__NAME}?retryWrites=true&w=majority`,
+    process.env.MONGODB_URL,
     { useNewUrlParser: true }
   );
 

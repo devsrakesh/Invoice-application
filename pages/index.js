@@ -67,7 +67,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const client = await MongoClient.connect(
-    `mongodb+srv://${process.env.USER__NAME}:${process.env.USER__PASSWORD}@cluster0.ishut.mongodb.net/${process.env.DATABASE__NAME}?retryWrites=true&w=majority`,
+    process.env.MONGODB_URL,
     { useNewUrlParser: true }
   );
 
